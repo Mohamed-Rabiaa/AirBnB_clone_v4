@@ -1,12 +1,13 @@
-$(document).read({
-    let amenity_ids = {};
-    $('li input').change(function() {
+$(document).ready(function(){
+    const dct = {};
+    $('input:checkbox').change(function() {
 	if ($(this).is(':checked')) {
-	    amenity_ids[$(this).attr('data-id')] = $(this).attr('data-name');
+	    dct[$(this).attr('data-id')] = $(this).attr('data-name');
+	    console.log($(this).attr('data-name'));
 	}
 	else {
-	    delete amenity_ids[$(this).attr('data-id')];
+	    delete dct[$(this).attr('data-id')];
 	}
-	$('.amenities h4').text(object.values(amenity_id));
+	$('.amenities h4').text(Object.values(dct).join(', '));
     });
 });
